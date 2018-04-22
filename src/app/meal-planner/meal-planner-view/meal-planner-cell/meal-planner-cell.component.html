@@ -1,3 +1,20 @@
-<p>
-  meal-planner-cell works!
-</p>
+<section class="calendar-cell">
+  <header>
+    <h3>{{config.name}}</h3>
+    <p class="calendar-date-info">
+      <span *ngIf="showDate">{{date | date: 'shortDate'}}</span>
+      <span *ngIf="showDay">{{date | date: 'E'}}</span>
+    </p>
+  </header>
+  <div class="content">
+    <div *ngIf="config.breakfast">
+      <p *ngFor="let meal of breakfastMeals" >{{meal.name}}</p>
+    </div>
+    <div *ngIf="config.lunch">
+      <p *ngFor="let meal of lunchMeals" >{{meal.name}}</p>
+    </div>
+    <div *ngIf="config.dinner">
+      <p *ngFor="let meal of dinnerMeals" >{{meal.name}}</p>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import Config from '../models/Config';
 
 @Component({
   selector: 'app-meal-planner-toolbar',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./meal-planner-toolbar.component.css']
 })
 export class MealPlannerToolbarComponent {
-  @Input() config:Object;
+  @Input() config:Config;
 
   constructor() { }
 
