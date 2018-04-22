@@ -1,3 +1,5 @@
-<p>
-  meal-planner-toolbar works!
-</p>
+<div class="toolbar">
+  <button class="toolbar-btn" (click)="toggleConfig('breakfast')" [class.active]="config.breakfast">B</button>
+  <button class="toolbar-btn" (click)="toggleConfig('lunch')" [class.active]="config.lunch">L</button>
+  <button class="toolbar-btn" (click)="toggleConfig('dinner')" [class.active]="config.dinner">D</button>
+</div>

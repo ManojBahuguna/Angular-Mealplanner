@@ -1,0 +1,16 @@
+.toolbar {
+  background-color: #eee;
+  padding: 0.5em;
+}
+
+.toolbar-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 0.5em 1em;
+  outline: none;
+  cursor: pointer;
+}
+
+.toolbar-btn.active {
+  background-color: #cfc;
+}

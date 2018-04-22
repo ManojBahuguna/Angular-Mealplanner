@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-meal-planner-toolbar',
   templateUrl: './meal-planner-toolbar.component.html',
   styleUrls: ['./meal-planner-toolbar.component.css']
 })
-export class MealPlannerToolbarComponent implements OnInit {
+export class MealPlannerToolbarComponent {
+  @Input() config:Object;
 
   constructor() { }
 
-  ngOnInit() {
+  toggleConfig(key) {
+    this.config[key] = !this.config[key];
   }
 
 }
