@@ -30,9 +30,11 @@ export class MealPlannerCellComponent implements OnInit {
     }
 
     const mealsByDate = this.config.mealEvents.mealsByDate.get(this.date.toLocaleDateString());
-    this.breakfastMeals = mealsByDate.get(TimeSlot.breakfast);
-    this.lunchMeals = mealsByDate.get(TimeSlot.lunch);
-    this.dinnerMeals = mealsByDate.get(TimeSlot.dinner);
+    if(mealsByDate) {
+      this.breakfastMeals = mealsByDate.get(TimeSlot.breakfast);
+      this.lunchMeals = mealsByDate.get(TimeSlot.lunch);
+      this.dinnerMeals = mealsByDate.get(TimeSlot.dinner);
+    }
   }
 
 }

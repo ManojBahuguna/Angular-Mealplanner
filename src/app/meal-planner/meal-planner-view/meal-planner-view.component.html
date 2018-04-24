@@ -1,1 +1,3 @@
-<app-meal-planner-cell [config]="config" [date]="date" ></app-meal-planner-cell>
+<div class="calendar">
+  <app-meal-planner-cell *ngFor="let day of calendar.days" [config]="config" [date]="day.date" ></app-meal-planner-cell>
+</div>

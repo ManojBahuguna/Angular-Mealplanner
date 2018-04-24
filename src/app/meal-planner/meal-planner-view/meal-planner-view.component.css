@@ -1,0 +1,18 @@
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar > * {
+  padding: 0.3em;
+  flex-basis: calc(100%/7);
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+@media(min-width:992px) {
+  .calendar > * {
+    flex-grow: unset;
+    min-width: auto;
+  }
+}
