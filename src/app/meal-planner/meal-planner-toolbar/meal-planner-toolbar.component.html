@@ -2,4 +2,8 @@
   <button class="toolbar-btn" (click)="toggleConfig('breakfast')" [class.active]="config.breakfast">B</button>
   <button class="toolbar-btn" (click)="toggleConfig('lunch')" [class.active]="config.lunch">L</button>
   <button class="toolbar-btn" (click)="toggleConfig('dinner')" [class.active]="config.dinner">D</button>
+
+  <label>Date Range: </label>
+  <input type="number" [value]="config.dateRange.from" (input)="changeRangeMin($event)">
+  <input type="number" [value]="config.dateRange.to" (input)="changeRangeMax($event)">
 </div>

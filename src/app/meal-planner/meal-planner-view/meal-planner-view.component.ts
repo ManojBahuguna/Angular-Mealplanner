@@ -10,11 +10,11 @@ import CalendarMonth from '../models/Calendar';
 export class MealPlannerViewComponent implements OnInit {
   @Input() config:Config;
 
-  date = new Date();
-  calendar = new CalendarMonth(this.date);
+  calendar:CalendarMonth;
 
   ngOnInit() {
-    
+    this.calendar = new CalendarMonth(this.config.date);
   }
+
 
 }

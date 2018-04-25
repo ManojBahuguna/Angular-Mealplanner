@@ -1,3 +1,9 @@
 <div class="calendar">
-  <app-meal-planner-cell *ngFor="let day of calendar.days" [config]="config" [date]="day.date" ></app-meal-planner-cell>
+  <ng-container *ngFor="let day of calendar.days">
+    <app-meal-planner-cell
+      *ngIf="day.date.getDate() >= config.dateRange.from && day.date.getDate() <= config.dateRange.to"
+      [config]="config"
+      [date]="day.date"
+    ></app-meal-planner-cell>
+  </ng-container>
 </div>
