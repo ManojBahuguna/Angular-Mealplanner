@@ -25,10 +25,16 @@ export class MealPlannerToolbarComponent {
 
   changeRangeMax(e) {
     let v = Number(e.target.value);
-    if(v > 31) v = 31;
+    if(v > this.config.totalDays) v = this.config.totalDays;
     if(v < this.config.dateRange.from) v = this.config.dateRange.from;
     this.config.dateRange.to = v;
     e.target.value = v;
+  }
+
+  toggleDateInfoMode() {
+    this.config.dateInfoMode ++;
+    if(this.config.dateInfoMode > 2)
+      this.config.dateInfoMode = 0;
   }
 
 }

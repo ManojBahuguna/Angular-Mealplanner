@@ -6,4 +6,6 @@
   <label>Date Range: </label>
   <input type="number" [value]="config.dateRange.from" (input)="changeRangeMin($event)">
   <input type="number" [value]="config.dateRange.to" (input)="changeRangeMax($event)">
+
+  <button (click)="toggleDateInfoMode()">Toggle Date Info</button>
 </div>

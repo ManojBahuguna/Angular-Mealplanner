@@ -2,8 +2,8 @@
   <header>
     <h3>{{config.name}}</h3>
     <p class="calendar-date-info">
-      <span *ngIf="showDate">{{date | date: 'mediumDate'}}</span>
-      <span *ngIf="showDay">{{date | date: 'E'}}</span>
+      <span *ngIf="config.dateInfoMode === 0 || config.dateInfoMode === 2">{{date | date: 'mediumDate'}}</span>
+      <span *ngIf="config.dateInfoMode === 1 || config.dateInfoMode === 2">{{date | date: 'EEEE'}}</span>
     </p>
   </header>
   <div class="content">

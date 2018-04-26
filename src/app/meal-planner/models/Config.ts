@@ -8,6 +8,7 @@ export enum INFO_MODE {
 
 export default class Config {
   date = new Date();
+  totalDays = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
 
   name = '';
 
