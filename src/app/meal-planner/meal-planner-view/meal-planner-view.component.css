@@ -18,7 +18,19 @@
 }
 
 .btn {
-  background-color: #eee;
+  background-color: #777;
   border: 1px solid #aaa;
   padding: 0.5em 1em;
+  position: fixed;
+  color: #fff;
+}
+
+.btn-week {
+  right: 1em;
+  top: 50%;
+}
+
+.btn-month {
+  bottom: 1em;
+  left: 50%;
 }
