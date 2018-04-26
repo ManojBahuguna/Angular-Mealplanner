@@ -30,8 +30,12 @@ export class MealPlannerViewComponent implements OnInit {
     const day = this.config.date.getDay();
     const date = this.config.date.getDate();
     const diff = (date - day) + 1;
-    this.config.dateRange.from = diff;
-    this.config.dateRange.to = diff + 6;
+    const from = diff < 1 ? 1 : diff;
+    let to = diff + 6;
+    if(to > this.config.totalDays)
+      to = this.config.totalDays;
+    this.config.dateRange.from = from;
+    this.config.dateRange.to = to;
     this.isWeekExpanded = true;
   }
 
