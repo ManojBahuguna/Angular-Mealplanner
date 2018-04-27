@@ -8,3 +8,8 @@
 .calendar-cell header {
   border-bottom: 1px solid #eee;
 }
+
+.empty-msg {
+  color: #c55;
+  font-size: 0.9em;
+}

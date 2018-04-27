@@ -16,6 +16,6 @@
     <div *ngIf="config.dinner">
       <p *ngFor="let meal of dinnerMeals" >{{meal.name}}</p>
     </div>
-    <p *ngIf="!breakfastMeals && !lunchMeals && !dinnerMeals">No Meals</p>
+    <p class="empty-msg" *ngIf="(!breakfastMeals && !lunchMeals && !dinnerMeals) || (!config.breakfast && !config.lunch && !config.dinner)">No Meals</p>
   </div>
 </section>
