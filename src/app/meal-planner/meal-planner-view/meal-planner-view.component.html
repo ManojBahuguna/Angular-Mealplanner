@@ -1,7 +1,8 @@
-<fa-icon [icon]="isWeekExpanded || isMonthExpanded ? iconLeft : iconRight" class="btn btn-week" (click)="toggleWeek()"></fa-icon>
-<fa-icon [icon]="isMonthExpanded ? iconUp : iconDown" class="btn btn-month" (click)="toggleMonth()"></fa-icon>
+<div class="calendar" [class.single]="config.dateRange.to - config.dateRange.from === 0">
 
-<div class="calendar">
+  <fa-icon [icon]="isWeekExpanded || isMonthExpanded ? iconLeft : iconRight" class="btn btn-week" (click)="toggleWeek()"></fa-icon>
+  <fa-icon [icon]="isMonthExpanded ? iconUp : iconDown" class="btn btn-month" (click)="toggleMonth()"></fa-icon>
+
   <ng-container *ngFor="let day of calendar.days">
     <app-meal-planner-cell
       *ngIf="day.date.getDate() >= config.dateRange.from && day.date.getDate() <= config.dateRange.to"

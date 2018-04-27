@@ -1,14 +1,16 @@
 :host {
-  position: relative;
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 
 .calendar {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
+  position: relative;
+  text-align: initial;
 }
 
-.calendar > * {
+app-meal-planner-cell {
   padding: 0.1em;
   flex-basis: calc(100%/7);
   flex-grow: 1;
@@ -16,7 +18,7 @@
 }
 
 @media(min-width:992px) {
-  .calendar > * {
+  app-meal-planner-cell {
     flex-grow: unset;
   }
 }
@@ -28,6 +30,7 @@
   background-color: #fff;
   border-radius: 100%;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -35,11 +38,24 @@
 }
 
 .btn-week {
-  right: 0;
-  top: 3em;
+  right: 0.1em;
+  top: 0.1em;
 }
 
 .btn-month {
-  bottom: 1em;
-  left: 50%;
+  bottom: 0.1em;
+  left: calc(50% - 0.5em);
+}
+
+.single app-meal-planner-cell {
+  min-width: 200px;
+}
+
+.single .btn-week {
+  right: -1.1em;
+  top: calc(50% - 0.5em);
+}
+
+.single .btn-month {
+  bottom: -1.1em;
 }
