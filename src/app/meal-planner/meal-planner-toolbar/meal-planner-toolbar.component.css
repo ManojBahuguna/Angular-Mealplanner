@@ -1,16 +1,68 @@
 .toolbar {
-  background-color: #eee;
-  padding: 0.5em;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.5em;
+  padding: 0.3em;
+  background-color: #fff;
+}
+
+.toolbar-commands-set {
+  background-color: #fbfbfb;
+  display: inline-block;
+  border: 1px solid #eee;
+  font-size: 1.1em;
+  margin: 0.1em;
+  text-align: center;
+}
+
+.toolbar-commands-set label {
+  padding-right: 0.5em;
+  border-right: 1px solid #eee;
+  display: none;
+}
+
+.toolbar-commands-set > * {
+  vertical-align: middle;
+  padding: 0.3em;
+}
+
+.commands {
+  display: inline-block;
 }
 
 .toolbar-btn {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 0.5em 1em;
-  outline: none;
   cursor: pointer;
+  padding: 0.1em 0.5em;
+  color: #777;
+  display: inline-block;
+}
+
+.toolbar-btn.semiActive {
+  color: #444;
 }
 
 .toolbar-btn.active {
-  background-color: #cfc;
+  color: #000;
+}
+
+.date-range .commands {
+  display: inline-flex;
+  padding: 0;
+}
+
+.date-range input {
+  line-height: 1.65em;
+  width: 2.5em;
+  border: none;
+  font-size: 1.05em;
+  margin: 0 0.2em;
+}
+
+.date-range input:first-of-type {
+  border-right: 1px solid #eee;
+}
+
+@media (min-width: 992px) {
+  .toolbar-commands-set label {
+    display: inline-block;
+  }
 }

@@ -14,7 +14,7 @@ app-meal-planner-cell {
   padding: 0.2em;
   flex-basis: calc(100%/7);
   flex-grow: 1;
-  min-width: 170px;
+  min-width: 180px;
 }
 
 @media(min-width:992px) {

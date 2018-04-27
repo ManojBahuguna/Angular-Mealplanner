@@ -15,6 +15,8 @@ export class MealPlannerCellComponent implements OnInit {
   lunchMeals:Array<MealEvent>;
   dinnerMeals:Array<MealEvent>;
 
+  DATE_INFO_MODE = INFO_MODE;
+
   constructor() { }
 
   ngOnInit() {

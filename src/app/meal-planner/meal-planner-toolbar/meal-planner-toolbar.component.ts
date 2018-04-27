@@ -1,5 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
-import Config from '../models/Config';
+import Config, {INFO_MODE} from '../models/Config';
+import { faCoffee, faSun, faMoon, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-meal-planner-toolbar',
@@ -8,6 +9,13 @@ import Config from '../models/Config';
 })
 export class MealPlannerToolbarComponent {
   @Input() config:Config;
+
+  iconBreakfast = faCoffee;
+  iconLunch = faSun;
+  iconDinner = faMoon;
+  iconCalendar = faCalendarAlt;
+
+  DATE_INFO_MODE = INFO_MODE;
 
   constructor() { }
 
@@ -33,7 +41,7 @@ export class MealPlannerToolbarComponent {
 
   toggleDateInfoMode() {
     this.config.dateInfoMode ++;
-    if(this.config.dateInfoMode > 2)
+    if(this.config.dateInfoMode > this.DATE_INFO_MODE.both)
       this.config.dateInfoMode = 0;
   }
 

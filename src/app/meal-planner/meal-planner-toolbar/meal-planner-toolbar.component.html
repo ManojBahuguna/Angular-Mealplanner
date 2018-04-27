@@ -1,11 +1,27 @@
 <div class="toolbar">
-  <button class="toolbar-btn" (click)="toggleConfig('breakfast')" [class.active]="config.breakfast">B</button>
-  <button class="toolbar-btn" (click)="toggleConfig('lunch')" [class.active]="config.lunch">L</button>
-  <button class="toolbar-btn" (click)="toggleConfig('dinner')" [class.active]="config.dinner">D</button>
+  <div class="toolbar-commands-set">
+    <label>Meal Time</label>
+    <div class="commands">
+      <fa-icon title="Breakfast" [icon]="iconBreakfast" class="toolbar-btn" (click)="toggleConfig('breakfast')" [class.active]="config.breakfast">B</fa-icon>
+      <fa-icon title="Lunch" [icon]="iconLunch" class="toolbar-btn" (click)="toggleConfig('lunch')" [class.active]="config.lunch">L</fa-icon>
+      <fa-icon title="Dinner" [icon]="iconDinner" class="toolbar-btn" (click)="toggleConfig('dinner')" [class.active]="config.dinner">D</fa-icon>
+    </div>
+  </div>
 
-  <label>Date Range: </label>
-  <input type="number" [value]="config.dateRange.from" (input)="changeRangeMin($event)">
-  <input type="number" [value]="config.dateRange.to" (input)="changeRangeMax($event)">
 
-  <button (click)="toggleDateInfoMode()">Toggle Date Info</button>
+  <div class="toolbar-commands-set">
+    <label>Date Format</label>
+    <div class="commands">
+      <fa-icon title="Date Format" [icon]="iconCalendar" class="toolbar-btn" [class.semiActive]="config.dateInfoMode === DATE_INFO_MODE.date"
+        [class.active]="config.dateInfoMode === DATE_INFO_MODE.both" (click)="toggleDateInfoMode()"></fa-icon>
+    </div>
+  </div>
+
+  <div class="toolbar-commands-set date-range">
+    <label>Date Range: </label>
+    <div class="commands">
+      <input title="Start Date" type="number" [value]="config.dateRange.from" (input)="changeRangeMin($event)">
+      <input title="End Date" type="number" [value]="config.dateRange.to" (input)="changeRangeMax($event)">
+    </div>
+  </div>
 </div>

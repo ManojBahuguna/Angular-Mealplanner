@@ -7,3 +7,9 @@ body {
   margin: auto;
   font-family: Cambria, serif;
 }
+
+button, input {
+  font-family: inherit;
+  outline: none;
+  background: inherit;
+}

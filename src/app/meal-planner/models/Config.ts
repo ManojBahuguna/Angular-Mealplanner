@@ -1,8 +1,8 @@
 import MealsCollection from "./MealsCollection";
 
 export enum INFO_MODE {
-  date = 0,
-  day,
+  day = 0,
+  date,
   both
 }
 
