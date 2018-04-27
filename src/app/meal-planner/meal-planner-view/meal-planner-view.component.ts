@@ -1,6 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import Config from '../models/Config';
 import CalendarMonth from '../models/Calendar';
+import {
+  faArrowAltCircleRight,
+  faArrowAltCircleLeft,
+  faArrowAltCircleUp,
+  faArrowAltCircleDown
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-meal-planner-view',
@@ -12,6 +18,11 @@ export class MealPlannerViewComponent implements OnInit {
 
   isWeekExpanded = false;
   isMonthExpanded = false;
+
+  iconLeft = faArrowAltCircleLeft;
+  iconRight = faArrowAltCircleRight;
+  iconUp = faArrowAltCircleUp;
+  iconDown = faArrowAltCircleDown
 
   calendar:CalendarMonth;
 

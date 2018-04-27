@@ -1,6 +1,5 @@
-
-<button class="btn btn-week" (click)="toggleWeek()">{{isWeekExpanded || isMonthExpanded ? 'compress' : 'expand'}} week</button>
-<button class="btn btn-month" (click)="toggleMonth()">{{isMonthExpanded ? 'compress' : 'expand'}} month</button>
+<fa-icon [icon]="isWeekExpanded || isMonthExpanded ? iconLeft : iconRight" class="btn btn-week" (click)="toggleWeek()"></fa-icon>
+<fa-icon [icon]="isMonthExpanded ? iconUp : iconDown" class="btn btn-month" (click)="toggleMonth()"></fa-icon>
 
 <div class="calendar">
   <ng-container *ngFor="let day of calendar.days">

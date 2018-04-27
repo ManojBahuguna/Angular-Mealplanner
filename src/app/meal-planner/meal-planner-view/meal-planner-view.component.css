@@ -1,33 +1,42 @@
+:host {
+  position: relative;
+  display: inline-block;
+}
+
 .calendar {
   display: flex;
   flex-wrap: wrap;
 }
 
 .calendar > * {
-  padding: 0.3em;
+  padding: 0.1em;
   flex-basis: calc(100%/7);
   flex-grow: 1;
-  min-width: 200px;
+  min-width: 170px;
 }
 
 @media(min-width:992px) {
   .calendar > * {
     flex-grow: unset;
-    min-width: auto;
   }
 }
 
 .btn {
-  background-color: #777;
-  border: 1px solid #aaa;
-  padding: 0.5em 1em;
-  position: fixed;
-  color: #fff;
+  line-height: 1em;
+  font-size: 2em;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 100%;
+  opacity: 0.7;
+}
+
+.btn:hover {
+  opacity: 1;
 }
 
 .btn-week {
-  right: 1em;
-  top: 50%;
+  right: 0;
+  top: 3em;
 }
 
 .btn-month {
