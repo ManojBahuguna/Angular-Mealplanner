@@ -11,7 +11,7 @@
 }
 
 app-meal-planner-cell {
-  padding: 0.1em;
+  padding: 0.2em;
   flex-basis: calc(100%/7);
   flex-grow: 1;
   min-width: 170px;
@@ -43,7 +43,7 @@ app-meal-planner-cell {
 }
 
 .btn-month {
-  bottom: 0.1em;
+  bottom: -1.1em;
   left: calc(50% - 0.5em);
 }
 
@@ -54,8 +54,4 @@ app-meal-planner-cell {
 .single .btn-week {
   right: -1.1em;
   top: calc(50% - 0.5em);
-}
-
-.single .btn-month {
-  bottom: -1.1em;
 }
