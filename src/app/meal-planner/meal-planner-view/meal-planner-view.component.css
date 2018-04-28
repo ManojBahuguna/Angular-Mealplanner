@@ -49,6 +49,10 @@ app-meal-planner-cell {
   left: calc(50% - 0.5em);
 }
 
+.single {
+  margin-right: 3em;
+}
+
 .single app-meal-planner-cell {
   min-width: 200px;
 }
