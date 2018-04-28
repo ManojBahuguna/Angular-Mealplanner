@@ -25,7 +25,7 @@ app-meal-planner-cell {
 
 .btn {
   line-height: 1em;
-  font-size: 2em;
+  font-size: 2.5em;
   position: absolute;
   background-color: #fff;
   border-radius: 100%;
@@ -38,8 +38,9 @@ app-meal-planner-cell {
 }
 
 .btn-week {
-  right: 0.1em;
-  top: 0.1em;
+  right: 0.3em;
+  top: 0.3em;
+  transition: right 0.3s, bottom 0.3s, left 0.3s, top 0.3s;
 }
 
 .btn-month {
