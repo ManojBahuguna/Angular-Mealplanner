@@ -5,7 +5,7 @@
 
   <ng-container *ngFor="let day of calendar.days">
     <app-meal-planner-cell
-      *ngIf="isDayInRange(day)"
+      [class.hidden]="!isDayInRange(day)"
       [config]="config"
       [name]="name"
       [events]="events"

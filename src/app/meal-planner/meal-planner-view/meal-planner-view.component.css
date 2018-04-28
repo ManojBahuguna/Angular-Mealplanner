@@ -12,10 +12,15 @@
 }
 
 app-meal-planner-cell {
+  display: block;
   padding: 0.2em;
   flex-basis: calc(100%/7);
   flex-grow: 1;
   min-width: 180px;
+}
+
+app-meal-planner-cell.hidden {
+  display: none;
 }
 
 @media(min-width:992px) {
