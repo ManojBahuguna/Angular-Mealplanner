@@ -1,4 +1,5 @@
 import MealsCollection from "./MealsCollection";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 export enum INFO_MODE {
   day = 0,
@@ -15,9 +16,13 @@ export default class Config {
   dinner = true;
 
   dateInfoMode:INFO_MODE = INFO_MODE.date;
-  dateRange = {
+  
+  dateRange = new BehaviorSubject({
     from: this.date.getDate(),
     to: this.date.getDate()
-  };
+  });
+  setDateRange(dateRange: {from: number, to: number}) {
+    this.dateRange.next(dateRange);
+  }
 }
 

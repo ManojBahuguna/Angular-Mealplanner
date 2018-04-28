@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import Config from '../models/Config';
-import CalendarMonth from '../models/Calendar';
+import CalendarMonth, { DateCell } from '../models/Calendar';
 import {
   faArrowAltCircleRight,
   faArrowAltCircleLeft,
@@ -9,16 +9,21 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import MealEvent from '../models/MealEvent';
 import MealsCollection from '../models/MealsCollection';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-meal-planner-view',
   templateUrl: './meal-planner-view.component.html',
   styleUrls: ['./meal-planner-view.component.css']
 })
-export class MealPlannerViewComponent implements OnInit {
+export class MealPlannerViewComponent implements OnInit, OnDestroy {
   @Input() config:Config;
   @Input() name: String;
   @Input() events: MealsCollection;
+
+  private dateRangeSubscription: Subscription;
+  startDate: number;
+  endDate: number;
 
   isWeekExpanded = false;
   isMonthExpanded = false;
@@ -32,6 +37,19 @@ export class MealPlannerViewComponent implements OnInit {
 
   ngOnInit() {
     this.calendar = new CalendarMonth(this.config.date);
+    
+    this.dateRangeSubscription = this.config.dateRange.subscribe(range => {
+      this.startDate = range.from;
+      this.endDate = range.to;
+    });
+  }
+
+  isDayInRange(day: DateCell) {
+    const date = day.date.getDate();
+    return (
+      date >= this.startDate &&
+      date <= this.endDate
+    );
   }
 
   toggleWeek() {
@@ -49,15 +67,15 @@ export class MealPlannerViewComponent implements OnInit {
     let to = diff + 6;
     if(to > this.config.totalDays)
       to = this.config.totalDays;
-    this.config.dateRange.from = from;
-    this.config.dateRange.to = to;
+    this.startDate = from;
+    this.endDate = to;
     this.isWeekExpanded = true;
   }
 
   compressWeek() {
     const date = this.config.date.getDate();
-    this.config.dateRange.from = date;
-    this.config.dateRange.to = date;
+    this.startDate = date;
+    this.endDate = date;
     this.isWeekExpanded = false;
     this.isMonthExpanded = false;
   }
@@ -71,8 +89,8 @@ export class MealPlannerViewComponent implements OnInit {
   }
 
   expandMonth() {
-    this.config.dateRange.from = 1;
-    this.config.dateRange.to = this.config.totalDays;
+    this.startDate = 1;
+    this.endDate = this.config.totalDays;
     this.isMonthExpanded = true;
   }
 
@@ -83,5 +101,9 @@ export class MealPlannerViewComponent implements OnInit {
       this.compressWeek();
 
     this.isMonthExpanded = false;
+  }
+
+  ngOnDestroy() {
+    this.dateRangeSubscription.unsubscribe();
   }
 }
