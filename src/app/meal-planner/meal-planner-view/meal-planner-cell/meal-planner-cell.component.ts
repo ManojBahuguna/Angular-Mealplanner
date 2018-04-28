@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Config, { INFO_MODE } from '../../models/Config';
-import { getTimeSlot } from '../../models/MealsCollection';
+import MealsCollection, { getTimeSlot } from '../../models/MealsCollection';
 import MealEvent, { TimeSlot } from '../../models/MealEvent';
 
 @Component({
@@ -11,6 +11,8 @@ import MealEvent, { TimeSlot } from '../../models/MealEvent';
 export class MealPlannerCellComponent implements OnInit {
   @Input() config:Config;
   @Input() date:Date;
+  @Input() name: String;
+  @Input() events: MealsCollection;
   breakfastMeals:Array<MealEvent>;
   lunchMeals:Array<MealEvent>;
   dinnerMeals:Array<MealEvent>;
@@ -20,7 +22,7 @@ export class MealPlannerCellComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const mealsByDate = this.config.mealEvents.mealsByDate.get(this.date.toLocaleDateString());
+    const mealsByDate = this.events.mealsByDate.get(this.date.toLocaleDateString());
     if(mealsByDate) {
       this.breakfastMeals = mealsByDate.get(TimeSlot.breakfast);
       this.lunchMeals = mealsByDate.get(TimeSlot.lunch);

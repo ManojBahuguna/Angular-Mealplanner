@@ -1,6 +1,6 @@
 <section class="calendar-cell">
   <header>
-    <h3>{{config.name}}</h3>
+    <h3>{{name}}</h3>
     <p class="calendar-date-info">
       <span *ngIf="config.dateInfoMode === DATE_INFO_MODE.date || config.dateInfoMode === DATE_INFO_MODE.both">{{date | date: 'mediumDate'}}</span>
       <span *ngIf="config.dateInfoMode === DATE_INFO_MODE.day || config.dateInfoMode === DATE_INFO_MODE.both">{{date | date: 'E'}}</span>

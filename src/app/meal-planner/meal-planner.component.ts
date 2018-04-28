@@ -9,15 +9,18 @@ import MealsCollection from './models/MealsCollection';
 })
 
 export class MealPlannerComponent implements OnInit {
-  @Input() events = [];
-  @Input() name = '';
+  @Input() mealplansData = [];
 
   config = new Config;
+  mealplans = [];
   
   ngOnInit() {
-    this.config.name = this.name;
-
-    this.config.mealEvents = new MealsCollection(this.events);
+    this.mealplansData.forEach(plan => {
+      this.mealplans.push({
+        name: plan.name,
+        events: new MealsCollection(plan.events)
+      });
+    });
   }
 
 }

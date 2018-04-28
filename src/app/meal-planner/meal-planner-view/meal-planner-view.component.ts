@@ -7,6 +7,8 @@ import {
   faArrowAltCircleUp,
   faArrowAltCircleDown
 } from '@fortawesome/free-solid-svg-icons';
+import MealEvent from '../models/MealEvent';
+import MealsCollection from '../models/MealsCollection';
 
 @Component({
   selector: 'app-meal-planner-view',
@@ -15,6 +17,8 @@ import {
 })
 export class MealPlannerViewComponent implements OnInit {
   @Input() config:Config;
+  @Input() name: String;
+  @Input() events: MealsCollection;
 
   isWeekExpanded = false;
   isMonthExpanded = false;

@@ -1,2 +1,2 @@
 <app-meal-planner-toolbar [config]="config"></app-meal-planner-toolbar>
-<app-meal-planner-view [config]="config"></app-meal-planner-view>
+<app-meal-planner-view *ngFor="let plan of mealplans" [config]="config" [name]="plan.name" [events]="plan.events"></app-meal-planner-view>
