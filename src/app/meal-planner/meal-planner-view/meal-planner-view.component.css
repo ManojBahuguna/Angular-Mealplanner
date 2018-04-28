@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   position: relative;
   text-align: initial;
+  margin-bottom: 4em;
 }
 
 app-meal-planner-cell {
